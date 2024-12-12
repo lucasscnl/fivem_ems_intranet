@@ -1,0 +1,554 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100..900&display=swap');
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --blue: #1A1F83;
+    --white: #fff;
+    --gray: #d9d9d9;
+    --lightblue: #65ADE8;
+    --lexend: "Lexend", sans-serif;
+    --success: #1A8331;
+    --error: #831A1A;
+    --succes2: rgba(26, 131, 49, 0.5);
+    --error2: rgba(131, 26, 26, 0.5);
+    --advert:rgba(214, 135, 34);
+    --gray2: #2f2f2f;
+
+
+
+    --m30: 30px;
+    --m20: 20px;
+    --m10: 10px;
+    --m05: 5px;
+    --m0: 0;
+}
+
+body {
+    margin: var(--m0);
+    font-family: var(--lexend);
+}
+
+a {
+    color: var(--white);
+    text-decoration: none;
+}
+
+.alert {
+    position: absolute;
+    top: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 900;
+    padding: 10px 15px;
+    border-radius: 5px;
+    background-color: var(--lightblue);
+    color: var(--white);
+    text-transform: uppercase;
+}
+
+.alert input, .alert button {
+    background-color: var(--gray2);
+    font-weight: 700;
+    color: var(--white);
+    font-family: var(--lexend);
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+}
+
+
+.success {
+    background-color: var(--success) !important;
+}
+.error {
+    background-color: var(--error) !important;
+}
+.advert {
+    background-color: var(--advert) !important;
+}
+
+
+.success-message, .error-message {
+    margin: 20px auto;
+    padding: 15px;
+    width: 80%;
+    max-width: 500px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 1.2em;
+}
+.success-message {
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+
+
+.dashboard-container {
+    display: grid; 
+    grid-template-columns: 300px 1fr; 
+    grid-template-rows: 1fr; 
+    gap: 0px 0px; 
+    grid-template-areas: 
+    "aside main";
+    overflow: hidden;
+}
+
+/* LOGIN PAGE */
+
+.login-page {
+    display: flex;
+    height: 100vh;
+}
+
+.login-container {
+    margin: var(--m0);
+    max-width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: -6px 0px 50px -6px rgba(0,0,0,0.57);
+}
+
+.login-slider {
+    width: 1121px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--gray);
+}
+
+.form-box {
+    width: 600px;
+	height: 600px;
+    background-color: var(--blue);
+    border-radius: 5px;
+    margin:0 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+	overflow: auto;
+}
+
+.form-box h1 {
+    font-size: 60pt;
+    color: var(--white);
+}
+
+.form-box form {
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+}
+
+.form-box input, .form-box select {
+    width: 500px;
+    height: 50px;
+    border-radius: 5px;
+    border: none;
+    margin: 0 0 35px 0;
+}
+
+.form-box label, .form-container div label {
+    font-size: 15pt;
+    font-weight: bold;
+    color: var(--white);
+    text-transform: uppercase;
+}
+
+.btn-sub {
+    margin: 0 auto !important;
+    width: 250px !important;
+    color: var(--blue);
+    font-size: 15pt;
+    font-weight: bolder;
+    text-transform: uppercase;
+}
+
+/* HOME PAGE */
+
+aside {
+    grid-area: aside;
+    background-color: var(--blue);
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    color: var(--white);
+    text-transform: uppercase;
+}
+
+aside div {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+}
+aside div h2 {
+    color: var(--lightblue);
+}
+
+aside div a {
+    margin: var(--m05) 0;
+    transition: all 0.15s ease-in-out;
+}
+
+aside div a:hover {
+    margin-left: calc(var(--m05) + var(--m05));
+    color: var(--lightblue);
+    font-weight: bold;
+}
+
+.dashboard-main {
+    grid-area: main;
+    height: 100vh !important;
+    /* padding: var(--m20); */
+}
+
+.infos-container {
+    display: flex;
+    align-items: center;
+}
+
+.infos-box {
+    width: 500px;
+    height: 200px;
+    margin: var(--m20) var(--m0) var(--m10) var(--m20);
+    color: var(--white);
+    background-color: var(--blue);
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--m20);
+    box-shadow: 5px 6px 43px 6px rgba(0,0,0,0.27);
+}
+
+.infos-box h1, .effectifs-container h2 {
+    font-size: 25pt;
+    text-transform: uppercase;
+    transition: all ease-in-out 0.4s;
+}
+
+.infos-box span {
+    font-size: 75pt;
+    font-weight: bolder;
+    transition: all ease-in-out 0.4s;
+}
+
+.infos-valeurs {
+    color: var(--lightblue);
+    text-shadow: -6px 2px 20px rgba(0,0,0,0.2);
+}
+
+.infos-box span:hover, .infos-box h1:hover {
+    text-shadow: -6px 2px 20px rgba(0,0,0,1);
+}
+
+.actions-container, .dispatch-box, .inter-line {
+    background-color: var(--gray);
+    margin: var(--m10) var(--m20);
+    border-radius: 5px;
+    display: flex;
+    align-content: center;
+}
+
+.action-button, .dispatch-box button, .dispatch-box a   {
+    font-size: 16pt;
+    border-radius: 5px;
+    margin: var(--m20) var(--m0) var(--m20) var(--m20);
+    padding: var(--m10);
+    width: fit-content;
+    background-color: var(--blue);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 500;
+    color: var(--white);
+    border: none;
+}
+
+.action-button span {
+    margin: 0 var(--m20);
+}
+
+.effectifs-container, .profile-container {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.effectifs-list {
+    margin: var(--m10) var(--m20);
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-wrap: wrap;
+    overflow: auto;
+    height: 50vh;
+    overflow: auto;
+    width: 100%;
+}  
+
+h2 {
+    color: var(--blue);
+}
+
+.effectif-box {
+    background-color: var(--gray);
+    border-radius: 5px;
+    margin: var(--m05) var(--m20);
+    padding: var(--m05) var(--m10);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-width: 45%;
+}
+
+.effectif-id h3 {
+    color: var(--blue);
+    font-size: 20pt;
+    text-transform: uppercase;
+}
+
+.effectif-grade span {
+    color: var(--blue);
+    font-size: 25pt;
+    font-weight: bolder;
+}
+
+.effectif-service span {
+    font-size: 16pt;
+    color: var(--error);
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.out-of-service {
+    color: var(--error) !important;
+}
+
+.in-service {
+    color: var(--success) !important;
+}
+
+/* DISPATCH PAGE */
+
+.dispatch-container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    align-items: center;
+    overflow-y: auto;
+    max-height: 50%;
+}
+
+.dispatch-box {
+    display: flex;
+    justify-content: space-between;
+    width: 45%;
+    padding: var(--m20);
+}
+
+.dispatch-box .patrol-infos {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.dispatch-box .patrol-infos span {
+    margin: var(--m05);
+}   
+
+.dispatch-box .patrol-infos span strong {
+    text-transform: uppercase;
+    font-size: 13pt;
+}
+
+.patrol-actions button, .patrol-actions a {
+    width: 110px;
+    transition: all ease-in-out 0.4s;
+}
+
+.patrol-actions button:hover, .patrol-actions a:hover {
+    background-color: var(--lightblue);
+    box-shadow: 5px 6px 43px 6px rgba(0,0,0,0.27);
+}
+
+.dispo {
+    border-left: 15px var(--success) solid !important;
+}
+.indispo {
+    border-left: 15px var(--error) solid !important;
+}
+.inter {
+    border-left: 15px var(--advert) solid !important;
+}
+
+/* RAPPORT PAGE */
+
+.form-container {
+    background-color: var(--blue);
+    width: fit-content;
+    margin: var(--m20);
+    border-radius: 5px;
+    padding: var(--m20);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.form-content {
+    display: flex;
+}
+
+.form-column {
+    margin: var(--m10);
+}
+
+.form-container div {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-container h2 {
+    color: var(--white);
+    font-size: 32pt;
+}
+
+.form-container div input,.form-container div select  {
+    height: 30px;
+    width: 300px;
+    border-radius: 5px;
+    border: none;
+    margin: var(--m05) 0;
+    padding: var(--m05);
+}
+
+.form-container section div textarea  {
+    margin: var(--m05) 0;
+    width: 400px;
+    border-radius: 5px;
+    resize: none;
+    padding: var(--m05);
+}
+
+.form-container button{
+    border-radius: 5px;
+    border: none;
+    width: 250px;
+    padding: var(--m10);
+    display: block;
+    transition: all ease-in-out 0.3s;
+}
+
+.form-container button:hover {
+    background-color: var(--lightblue);
+    color: var(--white);
+}
+
+/* EDIT MEMBERS PAGE */
+.profile-container h2 {
+    font-size: 30pt;
+}
+
+.profile-infos {
+    display: flex;
+    align-items: center;
+    margin: var(--m10) var(--m20);
+    justify-content: space-around;
+}
+
+.profile-box {
+    min-width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: var(--gray);
+    border-radius: 5px;
+    margin: var(--m05);
+    padding: var(--m20);
+    color: var(--blue);
+}
+
+.profile-box span {
+    font-size: 20pt;
+    font-weight: bold;
+    text-transform: uppercase;   
+}
+
+.profile-box select, .profile-box select option {
+    border: none;
+    outline: none;
+    background-color: transparent;
+    text-align: center;
+    color: var(--blue);
+    font-size: 20pt;
+    font-weight: bold;
+    text-transform: uppercase;  
+}
+.profile-box select option {
+    font-size: 12pt !important;
+}
+
+
+.profile-logs {
+    width: 75%;
+    background-color: var(--gray);
+    border-radius: 5px;
+    margin: var(--m20);
+    padding: var(--m20);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 55vh;
+}
+
+.logs-table {
+    width: auto;
+    overflow: auto;
+    display: block;
+    text-align: center;
+}
+
+.logs-table td {
+    padding: var(--m10);
+}
+
+.logs-line span {
+    max-width: 33%;
+}
+
+.head tr th {
+    text-transform: uppercase;
+    color: var(--lightblue);
+    font-size: 16pt;
+    font-weight: bold;
+    margin: var(--m10) 0;
+}
+
+/* DOSSIER VIEW */
+
+.inter-item {
+    margin: var(--m20);
+    width: max-content;
+}
+.inter-item span {
+    color: var(--blue);
+    font-weight: 700;
+    font-size: 16pt;
+}
