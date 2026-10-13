@@ -3,7 +3,7 @@
 $host = 'localhost'; // Nom d'hôte (souvent 'localhost' en local)
 $dbname = 'sams_intra'; // Nom de la base de données
 $username = 'rootsams'; // Nom d'utilisateur de la base de données
-$password = 'ScANluc11!'; // Mot de passe de la base de données
+$password = '12345678910'; // Mot de passe de la base de données
 
 // Connexion à la base de données
 try {
