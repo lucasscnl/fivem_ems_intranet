@@ -1,15 +1,22 @@
 <?php
-// Configuration de la base de données
-$host = 'localhost'; // Nom d'hôte (souvent 'localhost' en local)
-$dbname = 'sams_intra'; // Nom de la base de données
-$username = 'rootsams'; // Nom d'utilisateur de la base de données
-$password = '12345678910'; // Mot de passe de la base de données
 
-// Connexion à la base de données
+$host = getenv('DB_HOST');
+$port = getenv('DB_PORT') ?: '3306';
+$dbname = getenv('DB_NAME');
+$username = getenv('DB_USER');
+$password = getenv('DB_PASSWORD');
+
 try {
-    $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8", $username, $password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $pdo = new PDO(
+        "mysql:host=$host;port=$port;dbname=$dbname;charset=utf8mb4",
+        $username,
+        $password,
+        [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION
+        ]
+    );
 } catch (PDOException $e) {
-    die("Erreur de connexion : " . $e->getMessage());
+    error_log($e->getMessage());
+    http_response_code(500);
+    exit('Erreur de connexion à la base de données.');
 }
-?>
